@@ -1,0 +1,50 @@
+{
+    "name": "Team",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "members",
+            "otherEntityName": "student",
+            "otherEntityRelationshipName": "team"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sprints",
+            "otherEntityName": "sprint",
+            "otherEntityRelationshipName": "team"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "teams"
+        }
+    ],
+    "changelogDate": "20190418035048",
+    "entityTableName": "team",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

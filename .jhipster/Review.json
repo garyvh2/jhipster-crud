@@ -1,0 +1,45 @@
+{
+    "name": "Review",
+    "fields": [
+        {
+            "fieldName": "timestamp",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "story",
+            "otherEntityName": "story",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "reviews"
+        }
+    ],
+    "changelogDate": "20190418035052",
+    "entityTableName": "review",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

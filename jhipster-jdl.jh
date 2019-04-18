@@ -1,0 +1,58 @@
+entity Period {
+	startDate LocalDate required
+    endDate LocalDate required
+    name String required
+}
+
+entity Project {
+	name String required
+    numStudent Integer required
+    schedule String required
+    status String required
+}
+
+entity Team {
+	name String required
+    status String required
+}
+
+entity Student {
+	name String required
+    lastName String required
+    role String required
+    status String required
+}
+
+entity Story {
+	code String required
+    name String required
+    description String required
+    status String required
+}
+
+entity Sprint {
+	name String required
+	startDate LocalDate required
+    endDate LocalDate required
+    status String required
+}
+
+entity Review {
+	timestamp LocalDate required
+    comment String required
+    status String required
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Period{project} to Project{period required}
+	Project{teams} to Team{project required}
+	Team{members} to Student{team required}
+	Team{sprints} to Sprint{team required}
+	Sprint{stories} to Story{sprint required}
+	Story{reviews} to Review{story required}
+	Story{developers} to Student{story required}
+}
+
+// Set service options to all except few
+service all with serviceImpl
